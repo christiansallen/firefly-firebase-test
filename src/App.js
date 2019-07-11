@@ -44,7 +44,12 @@ class App extends Component{
 render(){
  return (
     <div className="App">
-      {this.state.signedIn ? <div>Signed In!<button onClick={this.signOut}>Sign Out</button></div> : <StyledFirebaseAuth
+      {this.state.signedIn ? <div><h1>Welcome {firebase.auth().currentUser.displayName}</h1>
+           <img
+              alt="profile picture"
+              src={firebase.auth().currentUser.photoURL}
+            />
+        <button onClick={this.signOut}>Sign Out</button></div> : <StyledFirebaseAuth
             uiConfig={this.uiConfig}
             firebaseAuth={firebase.auth()}
           />}
